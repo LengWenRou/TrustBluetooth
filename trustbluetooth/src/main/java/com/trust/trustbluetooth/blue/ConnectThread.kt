@@ -16,7 +16,6 @@ import java.io.IOException
 class ConnectThread (d :BluetoothDevice,isChat : Boolean,connectCallBack : onConnectThread) :Thread(){
     private var NAME = "ConnectThread"
 
-
     private var device : BluetoothDevice? = null
     private var mSocket : BluetoothSocket? = null
     private var isChat = false
@@ -32,7 +31,7 @@ class ConnectThread (d :BluetoothDevice,isChat : Boolean,connectCallBack : onCon
     override fun run() {
         Thread(Runnable {   try {
             mSocket = if (isChat) {
-                device!!.createRfcommSocketToServiceRecord(BLUE_UUID)
+                device!!.createInsecureRfcommSocketToServiceRecord(BLUE_UUID)
             }else{
                 device!!.createRfcommSocketToServiceRecord(COM_UUID)
             }

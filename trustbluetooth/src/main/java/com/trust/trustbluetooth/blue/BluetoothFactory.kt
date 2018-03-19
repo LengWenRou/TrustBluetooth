@@ -166,6 +166,7 @@ import java.util.*
                         Log.d(NAME,"finished found device ")
                         mOnBluetoothFactoryCallBack!!.onFinishedFoundBlueDevice()
                     }
+                //蓝牙断开连接
                     BluetoothDevice.ACTION_ACL_DISCONNECTED ->{
                         mBlueSockt = null
                         mOnBluetoothFactoryCallBack!!.onDissConnect()
@@ -203,9 +204,6 @@ import java.util.*
         }
         //开启搜索
         mBluetoothAdapter!!.startDiscovery()
-
-        // 将已配对的蓝牙设备显示到第一个ListView中
-        val deviceSets:Set<BluetoothDevice> = mBluetoothAdapter!!.bondedDevices
     }
 
 

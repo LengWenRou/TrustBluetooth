@@ -52,7 +52,7 @@ class TraditionActivity : AppCompatActivity() ,View.OnClickListener , BluetoothF
             }
             //使蓝牙可见
             R.id.tradotion_blue_show_blue_btn->{
-
+                mBluetoothFactory!!.showBlue(this)
             }
             //发送数据
             R.id.tradotion_blue_send_data_btn->{
@@ -131,7 +131,6 @@ class TraditionActivity : AppCompatActivity() ,View.OnClickListener , BluetoothF
 
     fun startFinde(){
         mBluetoothFactory!!.startFind()
-
         var inflater = layoutInflater
         var view :View= inflater.inflate(R.layout.dialog, null)
         discoveryPro = view.findViewById(R.id.discoveryPro)
